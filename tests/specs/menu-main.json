@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Back to main menu",
+    "steps": [
+      {
+        "send": { "callback": "menu:main" },
+        "expect": [{ "method": "editMessageText" }]
+      }
+    ]
+  }
+]
