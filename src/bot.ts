@@ -5,8 +5,19 @@ import type { StorageAdapter } from "grammy";
 // The per-chat session shape (ephemeral conversation state only). Extend as the
 // bot grows. Durable domain data must NOT live here — use the toolkit's
 // persistent storage (see AGENTS.md).
+export type FlowStep =
+  | "idle"
+  | "awaiting_video"
+  | "awaiting_cut_start"
+  | "awaiting_cut_end"
+  | "awaiting_text_overlay"
+  | "awaiting_watermark"
+  | "awaiting_music";
+
 export interface Session {
-  // example: step?: "awaiting_amount";
+  step?: FlowStep;
+  projectId?: string;
+  cutStart?: string;
 }
 
 export type Ctx = BotContext<Session>;

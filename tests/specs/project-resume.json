@@ -3,17 +3,15 @@
     "name": "Resume project",
     "steps": [
       {
+        "send": { "callback": "project:resume" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Resume editing a saved project"
+              "text": "No saved projects yet — upload a video to create one."
             }
           }
-        ],
-        "send": {
-          "callback": "project:resume"
-        }
+        ]
       }
     ]
   }

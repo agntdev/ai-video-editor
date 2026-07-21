@@ -3,17 +3,15 @@
     "name": "Add watermark",
     "steps": [
       {
+        "send": { "callback": "overlay:watermark" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Add a watermark overlay to the current project"
+              "text": "Upload a video first to start editing."
             }
           }
-        ],
-        "send": {
-          "callback": "overlay:watermark"
-        }
+        ]
       }
     ]
   }

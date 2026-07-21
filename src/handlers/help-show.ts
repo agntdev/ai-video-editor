@@ -1,17 +1,28 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
+import { inlineButton, inlineKeyboard } from "../toolkit/index.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-// Menu: wire this into /start via registerMainMenuItem({ label: "Help", data: "help:show" }) if the toolkit exposes it.
+const composer = new Composer<Ctx>();
 
-const composer = new Composer();
+const HELP_TEXT = [
+  "🎬 AI Video Editor — How to use",
+  "",
+  "1. Upload a video from the main menu",
+  "2. Add cuts with precise timestamps",
+  "3. Add text, watermarks, or background music",
+  "4. Preview cuts before exporting",
+  "5. Export in 720p, 1080p, or 4K",
+  "",
+  "Your projects are saved — come back anytime to continue.",
+].join("\n");
 
 composer.callbackQuery("help:show", async (ctx) => {
   await ctx.answerCallbackQuery();
-  await ctx.reply("Show help information");
+  await ctx.reply(HELP_TEXT, {
+    reply_markup: inlineKeyboard([
+      [inlineButton("⬅️ Back to menu", "menu:main")],
+    ]),
+  });
 });
 
 export default composer;
