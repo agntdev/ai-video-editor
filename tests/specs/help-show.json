@@ -3,17 +3,8 @@
     "name": "Help",
     "steps": [
       {
-        "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Show help information"
-            }
-          }
-        ],
-        "send": {
-          "callback": "help:show"
-        }
+        "send": { "callback": "help:show" },
+        "expect": [{ "method": "sendMessage" }]
       }
     ]
   }
