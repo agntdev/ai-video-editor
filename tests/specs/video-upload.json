@@ -3,17 +3,15 @@
     "name": "Upload video",
     "steps": [
       {
+        "send": { "callback": "video:upload" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Upload a video to create a new project"
+              "text": "Send me a video to start editing.\n\nSupported formats: MP4, MKV, MOV, AVI, WebM."
             }
           }
-        ],
-        "send": {
-          "callback": "video:upload"
-        }
+        ]
       }
     ]
   }

@@ -3,17 +3,15 @@
     "name": "Add text overlay",
     "steps": [
       {
+        "send": { "callback": "overlay:text" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Add a text overlay to the current project"
+              "text": "Upload a video first to start editing."
             }
           }
-        ],
-        "send": {
-          "callback": "overlay:text"
-        }
+        ]
       }
     ]
   }
